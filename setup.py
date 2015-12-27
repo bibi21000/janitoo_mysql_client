@@ -65,7 +65,7 @@ data_files.extend(data_files_config('config','src/config','README'))
 
 
 setup(
-    name = 'janitoo_mysq_client',
+    name = 'janitoo_mysql_client',
     description = "Mysql client for janitoo",
     long_description = "A multi-technologies home automation protocol over mqtt. The db part",
     author='Sébastien GALLET aka bibi2100 <bibi21000@gmail.com>',
