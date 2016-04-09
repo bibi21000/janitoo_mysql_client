@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""Unittests for Janitoo.
+"""Unittests for Janitoo-common.
 """
 __license__ = """
     This file is part of Janitoo.
@@ -23,19 +23,29 @@ __author__ = 'Sébastien GALLET aka bibi21000'
 __email__ = 'bibi21000@gmail.com'
 __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000"
 
+import warnings
+warnings.filterwarnings("ignore")
+
 import sys, os
-import time, datetime
+import time
 import unittest
-import threading
 import logging
-from pkg_resources import iter_entry_points
+import threading
+import mock
+import logging
 
 from janitoo_nosetests import JNTTBase
-import janitoo_mysql_client
+from janitoo_nosetests.server import JNTTDockerServerCommon, JNTTDockerServer
 
-class Fake(JNTTBase):
-    """Fake test
+from janitoo.runner import Runner, jnt_parse_args
+from janitoo.server import JNTServer
+from janitoo.utils import HADD_SEP, HADD
+
+class TestMyqslSerser(JNTTBase):
+    """Test the server
     """
+    host = 'localhost'
+    port = 3306
 
-    def test_001_fake(self):
-        self.assertTrue(True)
+    def test_001_connect_to_server(self):
+        self.assertTCP(self.host, self.port)
