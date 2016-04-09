@@ -41,11 +41,12 @@ from janitoo.runner import Runner, jnt_parse_args
 from janitoo.server import JNTServer
 from janitoo.utils import HADD_SEP, HADD
 
-class TestMyqslSerser(JNTTBase):
+class TestMysqlSerser(JNTTBase):
     """Test the server
     """
     host = 'localhost'
     port = 3306
 
     def test_001_connect_to_server(self):
+        JNTTBase.onlyDockerTest()
         self.assertTCP(self.host, self.port)
