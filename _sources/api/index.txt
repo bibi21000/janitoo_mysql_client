@@ -1,0 +1,10 @@
+janitoo_mysql_client package
+============================
+
+Module contents
+---------------
+
+.. automodule:: janitoo_mysql_client
+    :members:
+    :undoc-members:
+    :show-inheritance:
